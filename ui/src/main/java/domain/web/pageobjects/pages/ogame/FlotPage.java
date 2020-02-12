@@ -49,7 +49,7 @@ public class FlotPage {
 
     @Step
     public FlotPage setEspionage() {
-        if (Integer.parseInt(espionageProbeCount.getText()) != 0) {
+        if (Integer.parseInt(espionageProbeCount.getText().replace(".", "")) != 0) {
             espionageProbeInput.setValue("1");
         }
         return this;
@@ -57,7 +57,7 @@ public class FlotPage {
 
     @Step
     public FlotPage setHeavy() {
-        if (Integer.parseInt(fighterHeavyCount.getText()) != 0) {
+        if (Integer.parseInt(fighterHeavyCount.getText().replace(".", "")) != 0) {
             fighterHeavyInput.setValue("1");
         }
         return this;
