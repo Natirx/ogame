@@ -1,47 +1,22 @@
-stages:
-  - execute_QA_tests
-  - publish_QA_report
-
-variables:
-  REPORT_URL: $CI_JOB_URL/artifacts/browse/allure-report/
-  PIPELINE_URL: $CI_PIPELINE_URL
-
-.java_job:
-  before_script:
-    - export JAVA_HOME=/opt/jdk-11.0.2
-    - export PATH=/opt/jdk-11.0.2/bin:$PATH
-    - if [ "$CI_JOB_STAGE" = "test" ] ; then echo "User who triggered unit tests execution = email - $GITLAB_USER_EMAIL, name - $GITLAB_USER_NAME. Datetime = $(date)"; fi
-
-execute_QA_tests:
-  image: markhobson/maven-chrome:jdk-11
-  stage: execute_QA_tests
-  only:
-    - schedules
-  script:
-    - Xvfb :10 -ac &
-    - export DISPLAY=:10
-    - rm -rf tests/target/allure-results
+sudo: required
+dist: trusty
+language: java
+jdk:
+  - oraclejdk8
+addons:
+  firefox: "60.0"
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install dbus-x11
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
+  - wget https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - sudo cp chromedriver /usr/bin
+script:
     - mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=$OGAME_URL -Dog.user=$OGAME_USER -Dog.pass=$OGAME_PASS
     - mvn test -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=$OGAME_URL -Dog.user=$OGAME_USER1 -Dog.pass=$OGAME_PASS1
-  after_script:
-    - mvn allure:report
-  artifacts:
-    when: always
-    paths:
-      - allure-report
-      - tests/target/test_status.txt
-    expire_in: 100 yrs
-  tags:
-    - docker
-
-pages:
-  stage: publish_QA_report
-  when: manual
-  dependencies:
-    - execute_QA_tests
-  script:
-    - cp -R allure-report/. public/
-    - ls public/
-  artifacts:
-    paths:
-      - public
