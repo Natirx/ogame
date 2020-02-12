@@ -19,8 +19,9 @@ jobs:
 
 workflows:
   version: 2
-  commit:
-     triggers:
-       - schedule:
-           cron: "0 */2 * * *"
-      jobs: "ogame"
+  schedule:
+    triggers:
+      - schedule:
+          cron: "0 */2 * * *"
+      jobs:
+      - "ogame"
