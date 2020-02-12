@@ -1,7 +1,7 @@
 version: 2.0
 
 jobs:
-  "ogame":
+  build:
     docker:
       - image: markhobson/maven-chrome:jdk-11
     working_directory: ~/ogame
@@ -19,9 +19,13 @@ jobs:
 
 workflows:
   version: 2
-  schedule:
+  scheduled-workflow:
     triggers:
       - schedule:
           cron: "0 */2 * * *"
-      jobs:
-      - "ogame"
+          filters:
+            branches:
+              only: try-schedule-workflow
+
+    jobs:
+      - build
