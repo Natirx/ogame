@@ -12,10 +12,10 @@ jobs:
       - checkout
       - run:
           name: OGAME
-          command: mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
+          command: mvn test -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
       - run:
           name: Slavik
-          command: mvn clean install -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=slav4uk2011@gmail.com -Dog.pass=slavik1988
+          command: mvn test -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=slav4uk2011@gmail.com -Dog.pass=slavik1988
 
 workflows:
   version: 2
