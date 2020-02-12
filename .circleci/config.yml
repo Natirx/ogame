@@ -22,16 +22,15 @@ jobs:
 
 workflows:
   version: 2
-  commit-workflow:
+  commit:
     jobs:
       - build
-    schedule-workflow:
-      triggers:
-        - schedule:
-            cron: "0 */2 * * *"
-            filters:
-              branches:
-                only:
-                  - master
-      jobs:
-        - build
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 */2 * * *"
+          filters:
+            branches:
+              only:
+                - master
+                - beta
