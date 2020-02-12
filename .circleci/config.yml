@@ -14,5 +14,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "OGAME
+          name: OGAME
           command: mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
