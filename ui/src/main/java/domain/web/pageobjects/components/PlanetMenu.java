@@ -2,6 +2,7 @@ package domain.web.pageobjects.components;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import domain.web.pageobjects.pages.ogame.FlotPage;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -16,8 +17,8 @@ public class PlanetMenu<T> {
     private final ElementsCollection planets = parent.$$("div.smallplanet   ");
 
     @Step
-    public T goToLastColony(Integer planetIndex) {
+    public FlotPage goToLastColony(Integer planetIndex) {
         planets.get(planetIndex - 1).click();
-        return page;
+        return new FlotPage();
     }
 }

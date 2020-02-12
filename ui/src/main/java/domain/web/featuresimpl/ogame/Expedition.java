@@ -27,6 +27,7 @@ public class Expedition extends OgameBaseFeature implements Feature {
                     .setLargeTransporters(count)
                     .setEspionage()
                     .setHeavy()
+                    .setExpoler()
                     .next() 
                     .setPosition()
                     .next()

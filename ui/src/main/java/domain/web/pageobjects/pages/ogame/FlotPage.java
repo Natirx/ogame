@@ -23,7 +23,9 @@ public class FlotPage {
             largeTransportersInput = largeTransportersSection.$("input"),
             espionageProbeSection = civilSection.$("li.espionageProbe"),
             espionageProbeInput = espionageProbeSection.$("input"),
-            nextButton = parent.$("#continueToFleet2");
+            nextButton = parent.$("#continueToFleet2"),
+            explorerSection = battleshipsSection.$("li.explorer"),
+            explorerInput = explorerSection.$("input");
 
     public PlanetMenu<FlotPage> planetMenu = new PlanetMenu<>();
 
@@ -54,13 +56,19 @@ public class FlotPage {
     }
 
     @Step
-    public PlanetChoose next(){
+    public FlotPage setExpoler() {
+        explorerInput.setValue("1");
+        return this;
+    }
+
+    @Step
+    public PlanetChoose next() {
         nextButton.click();
         return new PlanetChoose();
     }
 
     private Integer numberToSet(Integer expCount, String count) {
-        Integer stCount = Integer.parseInt(count);
+        Integer stCount = Integer.parseInt(count.replace(".", ""));
         Integer stToSet;
         if (expCount != 1) {
             stToSet = stCount / expCount;
