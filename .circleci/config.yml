@@ -22,12 +22,3 @@ workflows:
   commit:
     jobs:
       - "ogame"
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 */2 * * *"
-          filters:
-            branches:
-              only:
-                - master
-                - beta
