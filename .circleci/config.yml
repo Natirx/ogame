@@ -25,6 +25,6 @@ workflows:
           cron: "0 */2 * * *"
           filters:
             branches:
-              only: "ogame"
+              only: master
     jobs:
       - "ogame"
