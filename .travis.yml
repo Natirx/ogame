@@ -15,6 +15,4 @@ before_install:
   - wget https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - sudo cp chromedriver /usr/bin
-script:
-    - mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=$OGAME_URL -Dog.user=$OGAME_USER -Dog.pass=$OGAME_PASS
-    - mvn test -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=$OGAME_URL -Dog.user=$OGAME_USER1 -Dog.pass=$OGAME_PASS1
+script: mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=$OGAME_URL -Dog.user=$OGAME_USER -Dog.pass=$OGAME_PASS
