@@ -9,7 +9,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.testng.xml.XmlSuite;
-import synapsert.TestStatusCollector;
 import utils.SelenideAllureListener;
 import utils.TestListener;
 
@@ -59,7 +58,6 @@ public class BaseWebTest {
 
     @AfterSuite(alwaysRun = true)
     protected void afterSuite() {
-        TestStatusCollector.serialize();
         Path path = Path.of("", "target/allure-results/environment.properties");
         System.out.println(path.toAbsolutePath().toString());
         try {

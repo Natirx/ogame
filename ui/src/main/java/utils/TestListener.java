@@ -6,8 +6,6 @@ import lombok.extern.java.Log;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import synapsert.TestExecutionStatus;
-import synapsert.TestStatusCollector;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -25,12 +23,10 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        getTestCaseIds(result).forEach(id -> TestStatusCollector.put(id, TestExecutionStatus.Passed));
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        getTestCaseIds(result).forEach(id -> TestStatusCollector.put(id, TestExecutionStatus.Failed));
         AllureUtils.takeScreenshot(result.getMethod().getMethodName());
     }
 

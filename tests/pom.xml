@@ -66,13 +66,6 @@
                     <reportVersion>${allure.version}</reportVersion>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.iqvia.element</groupId>
-                <artifactId>sdf-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 

@@ -12,19 +12,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>common</artifactId>
 
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.iqvia.element</groupId>
-                <artifactId>sdf-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
