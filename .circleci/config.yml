@@ -19,4 +19,5 @@ jobs:
       JVM_OPTS: -Xmx3200m
       TERM: dumb
 
+    steps:
       - run: mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
