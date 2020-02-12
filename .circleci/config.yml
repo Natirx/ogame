@@ -1,10 +1,7 @@
-# Java Gradle CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
-version: 2
+version: 2.0
+
 jobs:
-  build:
+  "ogame":
     docker:
       - image: markhobson/maven-chrome:jdk-11
     working_directory: ~/ogame
@@ -24,7 +21,7 @@ workflows:
   version: 2
   commit:
     jobs:
-      - build
+      - "ogame"
   nightly:
     triggers:
       - schedule:
