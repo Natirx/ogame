@@ -6,20 +6,13 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: markhobson/maven-chrome:jdk-11
-
     working_directory: ~/ogame
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
     environment:
-      # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
-
     steps:
-      - run: mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
+      - checkout
+      - run:
+          name: "OGAME
+          command: mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
