@@ -13,7 +13,7 @@ public class PlanetMenu<T> {
     private final SelenideElement parent = $("#planetList"),
             lastColony = parent.$("#planet-33639493");
 
-    private final ElementsCollection planets = parent.$$("idv.smallplanet   ");
+    private final ElementsCollection planets = parent.$$("div.smallplanet   ");
 
     @Step
     public T goToLastColony(Integer planetIndex) {

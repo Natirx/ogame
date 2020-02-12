@@ -6,6 +6,11 @@ import domain.web.pageobjects.pages.ogame.FlotPage;
 public class Expedition extends OgameBaseFeature implements Feature {
 
     FlotPage page;
+    private Integer colonyIndex;
+
+    public Expedition(Integer colonyIndex) {
+        this.colonyIndex = colonyIndex;
+    }
 
     @Override
     public void init() {
@@ -17,7 +22,7 @@ public class Expedition extends OgameBaseFeature implements Feature {
         Integer count = page.getAvailableExp() - page.getFreeExp();
         if (count != 0) {
             page.planetMenu
-                    .goToLastColony(3)
+                    .goToLastColony(colonyIndex)
                     .setSmallTransporters(count)
                     .setLargeTransporters(count)
                     .setEspionage()
