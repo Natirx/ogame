@@ -1,11 +1,17 @@
+URL: ENCRYPTED[41975e0519e79d9a636fc01df9bac2f50e58fbaa9ec9ec62cdece89d6e1c17520d68336416bfff9d1db0d90320b8252a]
+PASS: ENCRYPTED[1289d9ad8fbe47c43383f11b19aa53528be3ed3181de5d949053dab663d98b6bf70eb27a280b37bdeff6d67f7939027b]
+USER: ENCRYPTED[4f41bfdd7ddfbdd960761ea323660aeafdfdadd81526861c535273cb29b3703ee45ccd73e9e9dbda0242e9f4675736da]
+
 task:
   name: Cirrus CI
   container:
     image: markhobson/maven-chrome:jdk-11
   test_script:
+    - echo $USER
+    - echo USER
     - Xvfb :10 -ac &
     - export DISPLAY=:10
-    - mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=ENCRYPTED[41975e0519e79d9a636fc01df9bac2f50e58fbaa9ec9ec62cdece89d6e1c17520d68336416bfff9d1db0d90320b8252a] -Dog.user=ENCRYPTED[4f41bfdd7ddfbdd960761ea323660aeafdfdadd81526861c535273cb29b3703ee45ccd73e9e9dbda0242e9f4675736da] -Dog.pass=ENCRYPTED[1289d9ad8fbe47c43383f11b19aa53528be3ed3181de5d949053dab663d98b6bf70eb27a280b37bdeff6d67f7939027b]
+    - mvn clean install -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=$URL -Dog.user=$USER -Dog.pass=$PASS
     - mvn test -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=$OGAME_URL -Dog.user=$OGAME_USER1 -Dog.pass=$OGAME_PASS1
 
 
