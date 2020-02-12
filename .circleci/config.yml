@@ -19,7 +19,7 @@ workflows:
   commit:
     triggers:
       - schedule:
-          cron: "0 * * * *"
+          cron: "*/30 * * * *"
           filters:
             branches:
               only: master
