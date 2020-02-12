@@ -32,7 +32,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <skip>true</skip>
                     <suiteXmlFiles>
                         <suiteXmlFile>
                             src${file.separator}test${file.separator}resources${file.separator}suites${file.separator}${suite}.xml
