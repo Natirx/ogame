@@ -15,6 +15,7 @@ public class FlotPage {
             battleshipsSection = parent.$("#battleships"),
             fighterHeavy = battleshipsSection.$("li.fighterHeavy"),
             fighterHeavyInput = fighterHeavy.$("input"),
+            fighterHeavyCount = fighterHeavy.$("span.amount"),
             smallTransportersSection = civilSection.$("li.transporterSmall"),
             smallTransportersCount = smallTransportersSection.$("span.amount"),
             smallTransportersInput = smallTransportersSection.$("input"),
@@ -23,9 +24,12 @@ public class FlotPage {
             largeTransportersInput = largeTransportersSection.$("input"),
             espionageProbeSection = civilSection.$("li.espionageProbe"),
             espionageProbeInput = espionageProbeSection.$("input"),
+            espionageProbeCount = espionageProbeSection.$("span.amount"),
             nextButton = parent.$("#continueToFleet2"),
             explorerSection = battleshipsSection.$("li.explorer"),
-            explorerInput = explorerSection.$("input");
+            explorerInput = explorerSection.$("input"),
+            explorerCount = explorerSection.$("span.amount");
+
 
     public PlanetMenu<FlotPage> planetMenu = new PlanetMenu<>();
 
@@ -45,13 +49,17 @@ public class FlotPage {
 
     @Step
     public FlotPage setEspionage() {
-        espionageProbeInput.setValue("1");
+        if (Integer.parseInt(espionageProbeCount.getText()) != 0) {
+            espionageProbeInput.setValue("1");
+        }
         return this;
     }
 
     @Step
     public FlotPage setHeavy() {
-        fighterHeavyInput.setValue("1");
+        if (Integer.parseInt(fighterHeavyCount.getText()) != 0) {
+            fighterHeavyInput.setValue("1");
+        }
         return this;
     }
 

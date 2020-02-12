@@ -22,7 +22,7 @@ workflows:
   commit:
     triggers:
       - schedule:
-          cron: "0 */2 * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only: master
