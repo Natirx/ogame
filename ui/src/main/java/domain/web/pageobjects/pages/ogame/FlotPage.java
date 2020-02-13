@@ -65,7 +65,9 @@ public class FlotPage {
 
     @Step
     public FlotPage setExpoler() {
-        explorerInput.setValue("1");
+        if (Integer.parseInt(explorerCount.getText().replace(".", "")) != 0) {
+            explorerInput.setValue("1");
+        }
         return this;
     }
 
