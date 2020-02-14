@@ -6,6 +6,6 @@ import web.ogame.SFBaseWebTest;
 public class Slavik extends SFBaseWebTest {
     @org.testng.annotations.Test(invocationCount = 5)
     public void test_main() {
-        add(new Expedition(2)).trigger();
+        add(new Expedition(4)).trigger();
     }
 }
