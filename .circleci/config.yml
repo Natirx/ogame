@@ -13,9 +13,9 @@ jobs:
       - run:
           name: OGAME
           command: mvn test -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
-      - run:
-          name: Slavik
-          command: mvn test -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=slav4uk2011@gmail.com -Dog.pass=slavik1988
+#      - run:
+#          name: Slavik
+#          command: mvn test -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=https://s166-pl.ogame.gameforge.com/ -Dog.user=slav4uk2011@gmail.com -Dog.pass=slavik1988
 
 workflows:
   version: 2
