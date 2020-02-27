@@ -5,7 +5,7 @@ import domain.web.pageobjects.pages.ogame.FlotPage;
 
 public class Expedition extends OgameBaseFeature implements Feature {
 
-    FlotPage page;
+    private FlotPage page;
     private Integer colonyIndex;
 
     public Expedition(Integer colonyIndex) {
