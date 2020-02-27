@@ -35,15 +35,19 @@ public class FlotPage {
 
     @Step
     public FlotPage setSmallTransporters(Integer expCount) {
-        Integer stCount = numberToSet(expCount, getSmallTransportersCount());
-        smallTransportersInput.setValue(stCount.toString());
+        if (Integer.parseInt(smallTransportersCount.getText().replace(".", "")) != 0) {
+            Integer stCount = numberToSet(expCount, getSmallTransportersCount());
+            smallTransportersInput.setValue(stCount.toString());
+        }
         return this;
     }
 
     @Step
     public FlotPage setLargeTransporters(Integer expCount) {
-        Integer stCount = numberToSet(expCount, getLargeTransportersCount());
-        largeTransportersInput.setValue(stCount.toString());
+        if (Integer.parseInt(largeTransportersCount.getText().replace(".", "")) != 0) {
+            Integer stCount = numberToSet(expCount, getLargeTransportersCount());
+            largeTransportersInput.setValue(stCount.toString());
+        }
         return this;
     }
 
