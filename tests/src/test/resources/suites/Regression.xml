@@ -4,7 +4,6 @@
     <test name="Report Form, Scheduler, Assignments Group">
         <classes>
             <class name="web.ogame.flotpage.Test"/>
-            <class name="web.ogame.flotpage.Slavik"/>
         </classes>
     </test>
 </suite>

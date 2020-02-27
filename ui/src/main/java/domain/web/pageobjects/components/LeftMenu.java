@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class LeftMenu {
     private final SelenideElement parent = $("#menuTable");
 
-    private final ElementsCollection items = parent.$$("tag");
+    private final ElementsCollection items = parent.$$("li");
 
     @Step
     public FlotPage openFlotPage() {
