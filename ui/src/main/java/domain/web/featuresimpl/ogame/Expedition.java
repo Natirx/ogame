@@ -28,6 +28,8 @@ public class Expedition extends OgameBaseFeature implements Feature {
                     .setEspionage()
                     .setHeavy()
                     .setExpoler()
+                    .setInterseptor()
+                    .setDestroyer()
                     .next() 
                     .setPosition()
                     .next()

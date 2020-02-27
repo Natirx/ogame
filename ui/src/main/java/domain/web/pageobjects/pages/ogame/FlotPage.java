@@ -28,7 +28,13 @@ public class FlotPage {
             nextButton = parent.$("#continueToFleet2"),
             explorerSection = battleshipsSection.$("li.explorer"),
             explorerInput = explorerSection.$("input"),
-            explorerCount = explorerSection.$("span.amount");
+            explorerCount = explorerSection.$("span.amount"),
+            interceptorSection = battleshipsSection.$("li.interceptor"),
+            interceptorInput = interceptorSection.$("input"),
+            interceptorCount = interceptorSection.$("span.amount"),
+            destroyerSection = battleshipsSection.$("li.destroyer"),
+            destroyerInput = destroyerSection.$("input"),
+            destroyerCount= destroyerSection.$("span.amount");
 
 
     public PlanetMenu<FlotPage> planetMenu = new PlanetMenu<>();
@@ -71,6 +77,22 @@ public class FlotPage {
     public FlotPage setExpoler() {
         if (Integer.parseInt(explorerCount.getText().replace(".", "")) != 0) {
             explorerInput.setValue("1");
+        }
+        return this;
+    }
+
+    @Step
+    public FlotPage setInterseptor() {
+        if (Integer.parseInt(interceptorCount.getText().replace(".", "")) != 0) {
+            interceptorInput.setValue("1");
+        }
+        return this;
+    }
+
+    @Step
+    public FlotPage setDestroyer() {
+        if (Integer.parseInt(destroyerCount.getText().replace(".", "")) != 0) {
+            destroyerInput.setValue("1");
         }
         return this;
     }
