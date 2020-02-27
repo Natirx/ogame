@@ -41,10 +41,8 @@ public class FlotPage {
 
     @Step
     public FlotPage setSmallTransporters(Integer expCount) {
-        if (Integer.parseInt(smallTransportersCount.getText().replace(".", "")) != 0) {
             Integer stCount = numberToSet(expCount, getSmallTransportersCount());
             smallTransportersInput.setValue(stCount.toString());
-        }
         return this;
     }
 
