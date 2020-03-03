@@ -11,7 +11,6 @@ public final class DriverBinaryManager {
         DriverType driver = EnumUtil.searchEnum(DriverType.class, e -> e.name().equals(DRIVER_TYPE), DRIVER_TYPE);
         switch (driver) {
             case CHROME:
-                WebDriverManager.chromedriver().setup();
                 break;
             case FF:
                 WebDriverManager.firefoxdriver().setup();

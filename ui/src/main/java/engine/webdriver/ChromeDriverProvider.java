@@ -18,6 +18,7 @@ public class ChromeDriverProvider implements WebDriverProvider {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox"); //
         options.addArguments("disable-infobars");
+        options.addArguments("--headless");
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         options.addArguments("--window-size=1920,1080");
