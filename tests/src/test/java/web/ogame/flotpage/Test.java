@@ -6,6 +6,6 @@ import web.ogame.SFBaseWebTest;
 public class Test extends SFBaseWebTest {
     @org.testng.annotations.Test(invocationCount = 5)
     public void test_main() {
-        add(new Expedition(4)).trigger();
+        add(new Expedition(6)).trigger();
     }
 }
