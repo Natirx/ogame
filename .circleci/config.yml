@@ -12,7 +12,9 @@ jobs:
       - checkout
       - run:
           name: OGAME
-          command: mvn test -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://lobby.ogame.gameforge.com/pl_PL/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
+          command: |
+            set +e
+            mvn test -Dsuite=Regression -Ddriver.type=CHROME -Dog.url=https://lobby.ogame.gameforge.com/pl_PL/ -Dog.user=triko2020@gmail.com -Dog.pass=qweasdzxc
       - run:
           name: Slavik
           command: mvn test -Dsuite=slavik -Ddriver.type=CHROME -Dog.url=https://lobby.ogame.gameforge.com/pl_PL/ -Dog.user=slav4uk2011@gmail.com -Dog.pass=slavik1988

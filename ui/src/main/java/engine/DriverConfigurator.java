@@ -18,8 +18,6 @@ public final class DriverConfigurator {
         Configuration.savePageSource = false;
         Configuration.screenshots = false;
         Configuration.browser = getDriverClassName();
-        Configuration.proxyEnabled = true;
-
     }
 
     private static String getDriverClassName() {
