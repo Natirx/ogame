@@ -3,6 +3,7 @@ package domain.web.pageobjects.pages.ogame;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import domain.web.pageobjects.components.PlanetMenu;
+import domain.web.pageobjects.components.TopMenu;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -34,15 +35,23 @@ public class FlotPage {
             interceptorCount = interceptorSection.$("span.amount"),
             destroyerSection = battleshipsSection.$("li.destroyer"),
             destroyerInput = destroyerSection.$("input"),
-            destroyerCount= destroyerSection.$("span.amount");
+            destroyerCount = destroyerSection.$("span.amount"),
+            allFleet = parent.$("#sendall"),
+            noFleet = parent.$("#warning");
 
+    public TopMenu<FlotPage> topMenu = new TopMenu<>();
 
-    public PlanetMenu<FlotPage> planetMenu = new PlanetMenu<>();
+    public PlanetMenu planetMenu = new PlanetMenu();
+
+    @Step
+    public boolean checkFleet(){
+        return noFleet.isDisplayed();
+    }
 
     @Step
     public FlotPage setSmallTransporters(Integer expCount) {
-            Integer stCount = numberToSet(expCount, getSmallTransportersCount());
-            smallTransportersInput.setValue(stCount.toString());
+        Integer stCount = numberToSet(expCount, getSmallTransportersCount());
+        smallTransportersInput.setValue(stCount.toString());
         return this;
     }
 
@@ -99,6 +108,17 @@ public class FlotPage {
     public PlanetChoose next() {
         nextButton.click();
         return new PlanetChoose();
+    }
+
+    @Step
+    public FlotPage selectAllFleet() {
+        allFleet.click();
+        return this;
+    }
+
+    @Step
+    public Boolean fleet() {
+        return allFleet.isDisplayed();
     }
 
     private Integer numberToSet(Integer expCount, String count) {

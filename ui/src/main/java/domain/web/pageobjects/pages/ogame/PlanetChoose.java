@@ -7,17 +7,55 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PlanetChoose {
     private final SelenideElement parent = $("#fleet2"),
+            galaxyInput = parent.$("#galaxy"),
+            systemInput = parent.$("#system"),
             positionInput = parent.$("#position"),
-            nextButton = parent.$("#continueToFleet3");
+            nextButton = parent.$("#continueToFleet3"),
+            planetButton = parent.$("#pbutton"),
+            moonButton = parent.$("#mbutton"),
+            speedPanel = parent.$("#speedPercentage"),
+            secondSpeed = speedPanel.$$("step ").get(1);
+
 
     @Step
-    public PlanetChoose setPosition(){
+    public PlanetChoose setToMoon() {
+        moonButton.click();
+        return this;
+    }
+
+    @Step
+    public PlanetChoose setSecondSpeed() {
+        secondSpeed.click();
+        return this;
+    }
+
+    @Step
+    public PlanetChoose setGalaxy(Integer galaxy) {
+        galaxyInput.setValue(galaxy.toString());
+        return this;
+    }
+
+    @Step
+    public PlanetChoose setSystem(Integer system) {
+        systemInput.setValue(system.toString());
+        return this;
+    }
+
+    @Step
+    public PlanetChoose setPosition(Integer position) {
+        positionInput.setValue(position.toString());
+        return this;
+    }
+
+
+    @Step
+    public PlanetChoose setPosition() {
         positionInput.setValue("16");
         return this;
     }
 
     @Step
-    public MissionChoosePage next(){
+    public MissionChoosePage next() {
         nextButton.click();
         return new MissionChoosePage();
     }

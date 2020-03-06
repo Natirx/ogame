@@ -21,20 +21,22 @@ public class Expedition extends OgameBaseFeature implements Feature {
     public void execute() {
         Integer count = page.getAvailableExp() - page.getFreeExp();
         if (count != 0) {
-            page.planetMenu
-                    .goToLastColony(colonyIndex)
-                    .setSmallTransporters(count)
-                    .setLargeTransporters(count)
-                    .setEspionage()
-                    .setHeavy()
-                    .setExpoler()
-                    .setInterseptor()
-                    .setDestroyer()
-                    .next() 
-                    .setPosition()
-                    .next()
-                    .setExpMission()
-                    .sendFleet();
+            if (!page.checkFleet()) {
+                page.planetMenu
+                        .goToLastColony(colonyIndex)
+                        .setSmallTransporters(count)
+                        .setLargeTransporters(count)
+                        .setEspionage()
+                        .setHeavy()
+                        .setExpoler()
+                        .setInterseptor()
+                        .setDestroyer()
+                        .next()
+                        .setPosition()
+                        .next()
+                        .setExpMission()
+                        .sendFleet();
+            }
         }
     }
 }
