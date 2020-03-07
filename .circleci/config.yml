@@ -24,7 +24,7 @@ workflows:
   commit:
     triggers:
       - schedule:
-          cron: "0,30 * * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only: master
