@@ -3,6 +3,9 @@ package domain.web.pageobjects.pages.ogame;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class PlanetChoose {
@@ -31,6 +34,8 @@ public class PlanetChoose {
 
     @Step
     public PlanetChoose setGalaxy(Integer galaxy) {
+        var system = systemInput.getValue();
+        systemInput.setValue(Integer.toString(Integer.parseInt(system) + ThreadLocalRandom.current().nextInt(-2, 3)));
         galaxyInput.setValue(galaxy.toString());
         return this;
     }
@@ -50,6 +55,7 @@ public class PlanetChoose {
 
     @Step
     public PlanetChoose setPosition() {
+
         positionInput.setValue("16");
         return this;
     }
