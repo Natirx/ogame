@@ -34,8 +34,7 @@ public class PlanetChoose {
 
     @Step
     public PlanetChoose setGalaxy(Integer galaxy) {
-        var system = systemInput.getValue();
-        systemInput.setValue(Integer.toString(Integer.parseInt(system) + ThreadLocalRandom.current().nextInt(-2, 3)));
+
         galaxyInput.setValue(galaxy.toString());
         return this;
     }
@@ -48,6 +47,8 @@ public class PlanetChoose {
 
     @Step
     public PlanetChoose setPosition(Integer position) {
+        var system = systemInput.getValue();
+        systemInput.setValue(Integer.toString(Integer.parseInt(system) + ThreadLocalRandom.current().nextInt(-2, 3)));
         positionInput.setValue(position.toString());
         return this;
     }
