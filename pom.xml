@@ -46,7 +46,7 @@
         <maven-plugin.version>3.6.0</maven-plugin.version>
         <javax.mail.version>1.6.2</javax.mail.version>
         <zt-zip.version>1.13</zt-zip.version>
-        <aws-amazon-sdk>1.11.163</aws-amazon-sdk>
+        <aws-amazon-sdk>1.12.261</aws-amazon-sdk>
         <jira-rest-java-client-core.version>4.0.0</jira-rest-java-client-core.version>
         <fugue.version>2.6.1</fugue.version>
         <allure.java.commons>2.7.0</allure.java.commons>
