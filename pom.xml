@@ -35,7 +35,7 @@
         <surefire.version>2.22.1</surefire.version>
         <!--Libraries-->
         <allure.version>2.7.0</allure.version>
-        <testng.version>6.14.3</testng.version>
+        <testng.version>7.7.0</testng.version>
         <lombok.version>1.18.4</lombok.version>
         <selenide.version>5.2.2</selenide.version>
         <assertj.version>3.11.1</assertj.version>
